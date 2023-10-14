@@ -1,0 +1,92 @@
+SQL> select *
+  2  from emp
+  3  where sal>2000 and comm>200;
+
+no rows selected
+*********************************************************
+ select *
+  2  from emp
+  3  where job='CLERK' or sal>2000;
+********************************************************
+SQL> select *
+  2  from emp
+  3  where sal=1250 or sal=1100 or sal=2850;
+********************************************************
+SQL> select* from emp
+  2  where sal>1250 and sal<2850;
+***********************************************************
+SQL> select * from emp
+  2  where ename like '%AS';
+**********************************************************
+SQL> select * from emp
+  2  where regexp_like(ename,'AS$');
+************************************************************
+SQL> select* from emp
+  2  where ename like 'C%K';
+***********************************************************
+SQL> select* from emp
+  2  where regexp_like(ename,'^C.*K$');
+**********************************************************
+SQL> select* from emp
+  2  where ename like '__L% and %M__';
+**********************************************************
+SQL> select * from emp
+  2  where SAL!=1250 or SAL!=1100 or SAL!=2850;
+*********************************************************
+SQL> select * from emp
+  2  where SAL not between 1250 and 2850;
+***********************************************************
+SQL> select* from emp
+  2  where JOB like 'C%_E%K';
+***********************************************************
+SQL> select* from emp
+  2  where comm is null;
+***********************************************************
+SQL> select* from emp
+  2  where SAL is null and ename like 'S%';
+************************************************************
+SQL> select* from emp
+  2  where JOB like '_____';
+*************************************************************
+SQL> select* from emp
+  2  where ename like 'A%' and JOB like '_____';
+**********************************************************
+SQL> select ENAME,SAL,DEPTNO from emp
+  2  where DEPTNO in (20,30,40);
+**********************************************************
+SQL> select ename,sal,sal+nvl(comm,0)+sal*0.10 netsel
+  2  from emp
+  3  netsel;
+********************************************************
+SQL> select ename name, job work
+  2  from emp
+  3  where hiredate < '1 jan 1986' and sal between 1200 and 2500;
+*******************************************************************
+SQL> select empno,ename,deptno
+  2  from emp
+  3  where MGR=7698;
+******************************************************************
+SQL> select ename,job,sal
+  2  from emp
+  3  where deptno in (10,30);
+************************************************************
+select ename||' '||','||deptno
+  2  from emp;
+*********************************************************
+SQL> select *
+  2  from emp
+  3  where mgr is null;
+***********************************************************
+SQL> select *
+  2  from emp
+  3  where regexp_like(job,'AGE');
+**********************************************************
+SQL> select * from emp
+  2  where regexp_like (ename,'^A.*S$|..?N.*N$|..?N.*S$');
+***************************************************************
+SQL> select * from emp
+  2  where regexp_like (ename,'^A.*S$|..?N.*[N,S]$');
+****************************************************************
+SQL> select * from emp
+  2  where regexp_like(ename,'_');
+**************************************************************
